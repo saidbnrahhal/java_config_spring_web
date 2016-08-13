@@ -16,6 +16,8 @@
 		<junit.version>3.8.1</junit.version>
 		<hsqldb.version>2.3.2</hsqldb.version>
 		<mysql.version>5.1.10</mysql.version>
+		<hibernate.version>4.2.1.Final</hibernate.version>
+		<spring-japa-data.version>1.9.2.RELEASE</spring-japa-data.version>
 	</properties>
 
 	<dependencies>
@@ -74,6 +76,27 @@
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.version}</version>
+		</dependency>
+		<!-- Spring ORM -->
+		<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring-framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-jpa</artifactId>
+				<version>${spring-japa-data.version}</version>
+		</dependency>
+		<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
 		</dependency>
 		
 	</dependencies>
