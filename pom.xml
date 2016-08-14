@@ -18,6 +18,7 @@
 		<mysql.version>5.1.10</mysql.version>
 		<hibernate.version>4.2.1.Final</hibernate.version>
 		<spring-japa-data.version>1.9.2.RELEASE</spring-japa-data.version>
+		<spring.security.version>4.0.3.RELEASE</spring.security.version>
 	</properties>
 
 	<dependencies>
@@ -98,7 +99,22 @@
 				<artifactId>hibernate-entitymanager</artifactId>
 				<version>${hibernate.version}</version>
 		</dependency>
-		
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

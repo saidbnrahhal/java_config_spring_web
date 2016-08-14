@@ -51,4 +51,13 @@ public class UserController {
 		authorityService.save(authority);
 		return "redirect:authorities";
 	}
+	@RequestMapping(value ="/user" ,method=RequestMethod.GET)
+	public String getUserPage(){
+		
+		return "user/index";
+	}
+	@RequestMapping(value="/admin" ,method=RequestMethod.GET)
+	public String getAdminPage(){
+		return "admin/index";
+	}
 }

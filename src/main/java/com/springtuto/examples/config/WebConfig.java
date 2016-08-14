@@ -33,7 +33,9 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		  *right just index not index.jsp because of the 
 		  *internalResourceViewResolver will managed
 		  */
+		 
 		 registry.addViewController("/").setViewName("index");
+		 registry.addViewController("/accessDenied").setViewName("accessDenied");
 	 }
 	
 	 @Bean
