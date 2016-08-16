@@ -3,11 +3,14 @@ package com.springtuto.examples.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.springtuto.examples.model.Authority;
 import com.springtuto.examples.model.User;
@@ -59,5 +62,11 @@ public class UserController {
 	@RequestMapping(value="/admin" ,method=RequestMethod.GET)
 	public String getAdminPage(){
 		return "admin/index";
+	}
+	
+	@RequestMapping(value="/getAllUsers",method=RequestMethod.GET)
+	@ResponseStatus(code =HttpStatus.OK)
+	public @ResponseBody List<User> getListUsers(){
+		return userService.findAll();
 	}
 }
