@@ -1,9 +1,16 @@
 package com.springtuto.examples.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,8 +21,11 @@ public class User {
 	private Long id ;
 	private String username;
 	private String password;
-	private boolean enabled ;
 	
+	private boolean enabled ;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "users_authority", joinColumns = { @JoinColumn(name = "id_user", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "id_authority", table = "authority", referencedColumnName = "id") })
+	private Set<Authority> authorities = new HashSet<Authority>();
 	public User() {
 		
 	}
@@ -49,6 +59,12 @@ public class User {
 	}
 	public void setUsrname(String username) {
 		this.username = username;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password="
+				+ password + ", enabled=" + enabled  + "]";
 	}
 	
 }
